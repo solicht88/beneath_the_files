@@ -9,7 +9,7 @@ var tutorial = [
 	[Vector2(796, 620), "> The password appears below here. Fully type it to unlock the file's contents
 	
 	<enter> to continue"],
-	[Vector2(440, 410), "> Read and close text or image files by clicking the 'x' in the title bar 
+	[Vector2(440, 410), "> Read and close the open text or image files by clicking the 'x' in the title bar (on the top of the open window) 
 	
 	<enter> to continue"],
 	[Vector2(440, 40), "> Repeatedly click the virus stealing your files
