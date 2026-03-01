@@ -28,7 +28,9 @@ offset_top = 94.0
 offset_right = 613.0
 offset_bottom = 472.0
 theme = ExtResource("2_ykk22")
+text = "triplez was here"
 autowrap_mode = 2
+metadata/_edit_use_anchors_ = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

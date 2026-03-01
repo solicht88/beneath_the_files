@@ -11,7 +11,8 @@ func _ready():
 		if window_text == "virus":
 			self.visible = false
 			Global.fade_in()
-			get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
+			await get_tree().create_timer(0.5).timeout
+			get_tree().change_scene_to_file("res://scenes/ending.tscn")
 		else:
 			$Label.text = window_text
 	else:

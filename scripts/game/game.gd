@@ -12,6 +12,11 @@ var window_wide = preload("res://scenes/game/sprites/window_wide.tscn")
 var virus_node = preload("res://scenes/game/sprites/virus.tscn")
 
 
+# TODO: add music
+# TODO: implement other possible files
+# TODO: playtest, game balancing
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await ready
@@ -36,6 +41,7 @@ func _pick_password(file_name):
 		if file.name == file_name:
 			cur_file_index = i
 		file.can_click = false
+		file.has_opened = true
 		i += 1
 	
 	randomize()
@@ -87,10 +93,8 @@ func _unhandled_input(event: InputEvent) -> void:
 				else:
 					$RichTextLabel.text = "[center][color=#0a2f4b]" + cur_word.substr(0, cur_letter_index) + "[/color]" + cur_word.substr(cur_letter_index)
 
-# TODO: virus takes a file
-# TODO: prevent from taking virus file + currently open file
 
-
+# virus takes a file
 var virus_target = null
 var virus_target_position = null
 
@@ -103,7 +107,10 @@ func _virus_stopped():
 	await get_tree().create_timer(0.1).timeout
 	virus_target.position = virus_target_position
 	await get_tree().create_timer(0.1).timeout
-	virus_target.can_click = true
+	
+	if not virus_target.has_opened:
+		virus_target.can_click = true
+		print("here")
 	
 	virus_target = null
 	virus_target_position = null
@@ -119,6 +126,7 @@ func _on_virus_timer_timeout():
 	var virus_can_take = false
 	var virus = virus_node.instantiate()
 	
+	# prevent from taking virus file + currently open file
 	while not virus_can_take:
 		virus_target = $files.get_children().pick_random()
 		var target_index = $files.get_children().find(virus_target)

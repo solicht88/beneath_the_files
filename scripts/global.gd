@@ -123,6 +123,7 @@ var entries: Array = [
 	Alex out.",
 	"March 3: 3:25 A.M
 	W-what is that? I stared and stared. A lady with a sickly milk coloured face with thick black hair spilling down, covering her face. She is wearing a traditional white kimono with a large red obi. She turned to me. Suddenly, her neck and hand stretched, and it came closer and closer. I could only watch in horror as the monster’s limbs bent and twisted in weird angles. She looks just like Zine, but her teeth are pointy with blood all around her mouth and grinning at me, crazed. I took a step back, but my body wouldn’t budge an inch. “The chosen one,” a raspy voice came from the monster. “Master…Have…Came…Home…” She whispers. Suddenly her entire body shriveled and shifted, and compacted. A singular object dropped in front of me. A USB.
+	
 	Alex Out.",
 	"April 19th: 11:30 P.M, 2000,
 	From that day on, I promised myself that I would never check what the USB contained, but curiosity got the better of me, and I tentatively plugged it into my computer.

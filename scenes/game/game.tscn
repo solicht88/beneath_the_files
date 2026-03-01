@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://0iuxa61gs4sw"]
+[gd_scene load_steps=7 format=3 uid="uid://0iuxa61gs4sw"]
 
 [ext_resource type="Texture2D" uid="uid://beolvprxa1opo" path="res://assets/imgs/game sprites/Desktop.png" id="1_d0kyf"]
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_kq0ji"]
 [ext_resource type="PackedScene" uid="uid://kwmuhnup116s" path="res://scenes/game/sprites/file.tscn" id="3_1mlka"]
 [ext_resource type="PackedScene" uid="uid://dilb03pqjg4he" path="res://scenes/game/sprites/folder.tscn" id="4_1wjt3"]
+[ext_resource type="PackedScene" uid="uid://cgsp0immour76" path="res://scenes/game/tutorial.tscn" id="6_85jc7"]
 [ext_resource type="Theme" uid="uid://cccmvbftnanij" path="res://scenes/themes/rich_text_label.tres" id="6_u2c7n"]
 
 [node name="game" type="Node2D"]
@@ -43,7 +44,7 @@ position = Vector2(140, 200)
 position = Vector2(140, 375)
 
 [node name="file_10" parent="files" instance=ExtResource("3_1mlka")]
-position = Vector2(140, 560)
+position = Vector2(140, 550)
 
 [node name="file_11" parent="files" instance=ExtResource("4_1wjt3")]
 position = Vector2(145, 753)
@@ -68,5 +69,11 @@ tab_size = 5
 [node name="virus_timer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="tutorial" parent="." instance=ExtResource("6_85jc7")]
+offset_left = 340.0
+offset_top = 40.0
+offset_right = 340.0
+offset_bottom = 40.0
 
 [connection signal="timeout" from="virus_timer" to="." method="_on_virus_timer_timeout"]

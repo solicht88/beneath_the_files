@@ -5,7 +5,7 @@ signal open_file(file_name)
 
 
 var can_click = true
-var being_taken = false
+var has_opened = false
 
 
 # Called when the node enters the scene tree for the first time.

@@ -38,6 +38,7 @@ func _physics_process(delta):
 		target.position.x = move_toward(target.position.x, 1920, speed*delta)
 		if position.x >= 2020:
 			target_taken.emit()
+			queue_free()
 
 
 func _on_area_2d_mouse_entered():
