@@ -5,6 +5,7 @@ var cur_letter_index: int = 0
 var cur_word = null
 var cur_file = null
 var cur_file_index = null
+var currently_typing = false
 
 
 var window_long = preload("res://scenes/game/sprites/window_long.tscn")
@@ -14,7 +15,6 @@ var virus_node = preload("res://scenes/game/sprites/virus.tscn")
 
 # TODO: add music
 # TODO: implement other possible files
-# TODO: playtest, game balancing
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,6 +22,7 @@ func _ready():
 	await ready
 	Global.fade_out()
 	$RichTextLabel.visible = false
+	$AudioStreamPlayer.play()
 	
 	for file in $files.get_children():
 		file.open_file.connect(_pick_password)
@@ -33,6 +34,7 @@ func _process(_delta):
 
 
 func _pick_password(file_name):
+	currently_typing = true
 	cur_file = file_name
 	Global.opened_files.append(cur_file)
 	
@@ -40,8 +42,8 @@ func _pick_password(file_name):
 	for file in $files.get_children():
 		if file.name == file_name:
 			cur_file_index = i
+			file.has_opened = true
 		file.can_click = false
-		file.has_opened = true
 		i += 1
 	
 	randomize()
@@ -66,18 +68,22 @@ func _unhandled_input(event: InputEvent) -> void:
 					var new_window
 					
 					if not Global.entries[cur_file_index] is String:
-						new_window = window_wide.instantiate()
+						if Global.entries[cur_file_index][0] == "cave":
+							new_window = window_long.instantiate()
+						else:
+							new_window = window_wide.instantiate()
 					else:
 						new_window = [window_long, window_wide][window_index].instantiate()
 					
 					var coords: Vector2
 					if window_index == 0:
-						coords = Vector2(randi_range(300, 1400), randi_range(20, 310))
+						coords = Vector2(randi_range(400, 1360), randi_range(20, 310))
 					else:
-						coords = Vector2(randi_range(300, 1260), randi_range(20, 450))
+						coords = Vector2(randi_range(400, 1250), randi_range(20, 450))
 					
 					new_window.set_position(coords)
 					new_window.window_text = Global.entries[cur_file_index]
+					new_window.ending.connect(_on_ending)
 					$windows.add_child(new_window)
 					
 					
@@ -86,12 +92,13 @@ func _unhandled_input(event: InputEvent) -> void:
 					cur_file_index = null
 					cur_letter_index = 0
 					$RichTextLabel.visible = false
+					currently_typing = false
 					
 					for file in $files.get_children():
 						if file.name not in Global.opened_files:
 							file.can_click = true
 				else:
-					$RichTextLabel.text = "[center][color=#0a2f4b]" + cur_word.substr(0, cur_letter_index) + "[/color]" + cur_word.substr(cur_letter_index)
+					$RichTextLabel.text = "[center][color=#fbf236]" + cur_word.substr(0, cur_letter_index) + "[/color]" + cur_word.substr(cur_letter_index)
 
 
 # virus takes a file
@@ -107,11 +114,12 @@ func _virus_stopped():
 	await get_tree().create_timer(0.1).timeout
 	virus_target.position = virus_target_position
 	await get_tree().create_timer(0.1).timeout
+	virus_target.position = virus_target_position
 	
-	if not virus_target.has_opened:
+	if not virus_target.has_opened and not currently_typing:
 		virus_target.can_click = true
-		print("here")
 	
+	virus_target.position = virus_target_position
 	virus_target = null
 	virus_target_position = null
 
@@ -131,8 +139,11 @@ func _on_virus_timer_timeout():
 		virus_target = $files.get_children().pick_random()
 		var target_index = $files.get_children().find(virus_target)
 		
-		if not target_index == cur_file_index or not Global.entries[target_index] == "virus" or not virus_target.name in Global.taken_files:
+		if not target_index == cur_file_index or not Global.entries[target_index] is String or not virus_target.name in Global.taken_files:
 			virus_can_take = true
+		elif Global.entries[target_index] is String:
+			if not Global.entries[target_index] == "virus":
+				virus_can_take = true
 	
 	virus_target_position = virus_target.position
 	virus_target.can_click = false
@@ -147,3 +158,6 @@ func _on_virus_timer_timeout():
 	virus.target_taken.connect(_virus_took_file)
 	
 	add_child(virus)
+
+func _on_ending():
+	$AudioStreamPlayer.stop()

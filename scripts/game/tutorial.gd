@@ -2,20 +2,20 @@ extends Control
 
 
 var tutorial = [
-	[Vector2(340, 40), "> Select a file by clicking it to investigate for any viruses
+	[Vector2(440, 40), "> Select a file by clicking it to investigate for any viruses
 	
 	<esc> to skip
 	<enter> to continue"],
-	[Vector2(796, 620), "> Type the password shown below to unlock the file's contents
+	[Vector2(796, 620), "> The password appears below here. Fully type it to unlock the file's contents
 	
 	<enter> to continue"],
-	[Vector2(340, 410), "> Read and close text or image files by clicking the 'x' in the title bar 
+	[Vector2(440, 410), "> Read and close text or image files by clicking the 'x' in the title bar 
 	
 	<enter> to continue"],
-	[Vector2(340, 40), "> Repeatedly click the virus stealing your files
+	[Vector2(440, 40), "> Repeatedly click the virus stealing your files
 	
 	<enter> to continue"],
-	[Vector2(340, 40), "> Repeat previous steps until you find the virus in the computer
+	[Vector2(440, 40), "> Repeat previous steps until you find the virus in the computer
 	
 	<enter> to continue"]
 ]
@@ -42,6 +42,9 @@ func _on_area_2d_mouse_exited():
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click"):
+		self.visible = false
+		$AudioStreamPlayer.play()
+		await $AudioStreamPlayer.finished
 		Input.set_default_cursor_shape(Input.CURSOR_ARROW)
 		queue_free()
 

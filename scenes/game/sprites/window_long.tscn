@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dfxnei0ass6fv"]
+[gd_scene load_steps=8 format=3 uid="uid://dfxnei0ass6fv"]
 
 [ext_resource type="Script" path="res://scripts/game/window_long.gd" id="1_k8wek"]
 [ext_resource type="Texture2D" uid="uid://bljn4lqgygmsh" path="res://assets/imgs/game sprites/window1.png" id="1_srsfl"]
 [ext_resource type="Theme" uid="uid://bqf8rudx067vu" path="res://scenes/themes/window_text.tres" id="2_7lwaf"]
 [ext_resource type="Theme" uid="uid://cccmvbftnanij" path="res://scenes/themes/rich_text_label.tres" id="4_c3w4p"]
+[ext_resource type="PackedScene" uid="uid://crd4cgcu4qih6" path="res://scenes/audio_player.tscn" id="5_on2dt"]
+[ext_resource type="AudioStream" uid="uid://bjchectg71dux" path="res://assets/Sound/soundreality-sound-of-mouse-click-4-478760.mp3" id="6_mngea"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7vv0"]
 radius = 21.587
@@ -49,6 +51,10 @@ W-what is that? I stared and stared. A lady with sickly milk coloured face with 
 
 Alex Out."
 autowrap_mode = 2
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("5_on2dt")]
+stream = ExtResource("6_mngea")
+volume_db = -14.0
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

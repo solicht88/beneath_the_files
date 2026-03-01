@@ -4,6 +4,7 @@ extends Node2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	await ready
+	$AudioStreamPlayer2D.play()
 	Global.fade_out()
 	await get_tree().create_timer(0.5).timeout
 
@@ -21,6 +22,7 @@ func _process(_delta):
 
 func _input(event):
 	if event.is_action_pressed("enter"):
+		$AudioStreamPlayer2D.stop()
 		Global.fade_in()
 		await get_tree().create_timer(0.5).timeout
 		get_tree().change_scene_to_file("res://scenes/game/game.tscn")

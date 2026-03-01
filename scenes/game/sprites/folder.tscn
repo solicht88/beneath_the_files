@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://dilb03pqjg4he"]
+[gd_scene load_steps=6 format=3 uid="uid://dilb03pqjg4he"]
 
 [ext_resource type="Script" path="res://scripts/game/folder.gd" id="1_1dkom"]
 [ext_resource type="Texture2D" uid="uid://dbbqtir4e0nwf" path="res://assets/imgs/game sprites/file.png" id="1_5ivle"]
 [ext_resource type="Theme" uid="uid://bqf8rudx067vu" path="res://scenes/themes/window_text.tres" id="2_tf422"]
+[ext_resource type="PackedScene" uid="uid://crd4cgcu4qih6" path="res://scenes/audio_player.tscn" id="4_bcatm"]
+[ext_resource type="AudioStream" uid="uid://bjchectg71dux" path="res://assets/Sound/soundreality-sound-of-mouse-click-4-478760.mp3" id="5_phlyv"]
 
 [node name="folder" type="Node2D"]
 z_index = 1
@@ -26,6 +28,10 @@ offset_bottom = 117.0
 theme = ExtResource("2_tf422")
 text = "file_00"
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("4_bcatm")]
+stream = ExtResource("5_phlyv")
+volume_db = -14.0
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

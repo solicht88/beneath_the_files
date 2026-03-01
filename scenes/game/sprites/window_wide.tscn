@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://5761m8h7twye"]
+[gd_scene load_steps=7 format=3 uid="uid://5761m8h7twye"]
 
 [ext_resource type="Script" path="res://scripts/game/window_wide.gd" id="1_jbj4c"]
 [ext_resource type="Texture2D" uid="uid://43y5yxj26w33" path="res://assets/imgs/game sprites/window2.png" id="1_q75ue"]
 [ext_resource type="Theme" uid="uid://bqf8rudx067vu" path="res://scenes/themes/window_text.tres" id="2_ykk22"]
+[ext_resource type="PackedScene" uid="uid://crd4cgcu4qih6" path="res://scenes/audio_player.tscn" id="4_6thcj"]
+[ext_resource type="AudioStream" uid="uid://bjchectg71dux" path="res://assets/Sound/soundreality-sound-of-mouse-click-4-478760.mp3" id="5_ygop7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_gydew"]
 radius = 22.0
@@ -31,6 +33,10 @@ theme = ExtResource("2_ykk22")
 text = "triplez was here"
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("4_6thcj")]
+stream = ExtResource("5_ygop7")
+volume_db = -14.0
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]

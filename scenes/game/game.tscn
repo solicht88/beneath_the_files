@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://0iuxa61gs4sw"]
+[gd_scene load_steps=9 format=3 uid="uid://0iuxa61gs4sw"]
 
 [ext_resource type="Texture2D" uid="uid://beolvprxa1opo" path="res://assets/imgs/game sprites/Desktop.png" id="1_d0kyf"]
 [ext_resource type="Script" path="res://scripts/game/game.gd" id="1_kq0ji"]
@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dilb03pqjg4he" path="res://scenes/game/sprites/folder.tscn" id="4_1wjt3"]
 [ext_resource type="PackedScene" uid="uid://cgsp0immour76" path="res://scenes/game/tutorial.tscn" id="6_85jc7"]
 [ext_resource type="Theme" uid="uid://cccmvbftnanij" path="res://scenes/themes/rich_text_label.tres" id="6_u2c7n"]
+[ext_resource type="PackedScene" uid="uid://crd4cgcu4qih6" path="res://scenes/audio_player.tscn" id="7_qyd5v"]
+[ext_resource type="AudioStream" uid="uid://c7fc2nx1u0tlk" path="res://assets/Sound/bensound-aeon.mp3" id="8_euj6p"]
 
 [node name="game" type="Node2D"]
 script = ExtResource("1_kq0ji")
@@ -52,6 +54,12 @@ position = Vector2(145, 753)
 [node name="file_12" parent="files" instance=ExtResource("3_1mlka")]
 position = Vector2(140, 900)
 
+[node name="file_13" parent="files" instance=ExtResource("3_1mlka")]
+position = Vector2(260, 20)
+
+[node name="file_14" parent="files" instance=ExtResource("3_1mlka")]
+position = Vector2(260, 200)
+
 [node name="windows" type="Node2D" parent="."]
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -67,13 +75,17 @@ text = "[center]placeholder"
 tab_size = 5
 
 [node name="virus_timer" type="Timer" parent="."]
-wait_time = 10.0
+wait_time = 11.0
 autostart = true
 
 [node name="tutorial" parent="." instance=ExtResource("6_85jc7")]
-offset_left = 340.0
+offset_left = 440.0
 offset_top = 40.0
-offset_right = 340.0
+offset_right = 440.0
 offset_bottom = 40.0
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("7_qyd5v")]
+stream = ExtResource("8_euj6p")
+volume_db = 10.0
 
 [connection signal="timeout" from="virus_timer" to="." method="_on_virus_timer_timeout"]

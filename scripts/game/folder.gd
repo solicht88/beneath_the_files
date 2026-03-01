@@ -21,6 +21,7 @@ func _process(_delta):
 
 func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 	if Input.is_action_just_pressed("click") and can_click:
+		$AudioStreamPlayer.play()
 		open_file.emit(self.name)
 
 

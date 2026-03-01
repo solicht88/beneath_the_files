@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgsp0immour76"]
+[gd_scene load_steps=7 format=3 uid="uid://cgsp0immour76"]
 
 [ext_resource type="Script" path="res://scripts/game/tutorial.gd" id="1_hpb7a"]
 [ext_resource type="Theme" uid="uid://bqf8rudx067vu" path="res://scenes/themes/window_text.tres" id="2_8riw2"]
 [ext_resource type="Texture2D" uid="uid://43y5yxj26w33" path="res://assets/imgs/game sprites/window2.png" id="2_a20la"]
+[ext_resource type="PackedScene" uid="uid://crd4cgcu4qih6" path="res://scenes/audio_player.tscn" id="4_02e41"]
+[ext_resource type="AudioStream" uid="uid://bjchectg71dux" path="res://assets/Sound/soundreality-sound-of-mouse-click-4-478760.mp3" id="5_5mq5h"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_rtrdi"]
 radius = 10.4403
@@ -43,6 +45,10 @@ text = "> Select a file by clicking it to investigate for any viruses
 	<enter> to continue"
 autowrap_mode = 2
 metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" parent="." instance=ExtResource("4_02e41")]
+stream = ExtResource("5_5mq5h")
+volume_db = -14.0
 
 [connection signal="input_event" from="window/Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="window/Area2D" to="." method="_on_area_2d_mouse_entered"]

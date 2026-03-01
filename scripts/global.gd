@@ -87,6 +87,7 @@ var passwords: Array = [
 
 var shrine = preload("res://assets/imgs/game sprites/Distration/shintoshrine.png")
 var monster = preload("res://assets/imgs/game sprites/Distration/monsterdistraction.png")
+var cave = preload("res://assets/imgs/game sprites/Distration/thecave.png")
 var entries: Array = [
 	"Feb 28, 2000,
 	Today is a normal day at the mineshaft. Nothing too crazy, just fixing broken drills and examining the steel supports for any structural failures. Zine has gone missing, nothing to be surprised that punk is always slacking off. I feel sooooo tired today, I want to sleep, but I have night patrol to do. Urgh! That kid better come back or else I’m shutting the gate. 
@@ -129,8 +130,9 @@ var entries: Array = [
 	From that day on, I promised myself that I would never check what the USB contained, but curiosity got the better of me, and I tentatively plugged it into my computer.
 	
 	Alex out.",
-	shrine,
-	monster,
+	["shrine", shrine],
+	["monster", monster],
+	["cave", cave],
 	"virus"
 ]
 
