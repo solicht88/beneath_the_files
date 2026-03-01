@@ -63,4 +63,5 @@ func _on_area_2d_input_event(_viewport, _event, _shape_idx):
 			self.visible = false
 			await $AudioStreamPlayer.finished
 			Input.set_default_cursor_shape(Input.CURSOR_ARROW)
+			target.position = Vector2(target_x, target_y)
 			queue_free()

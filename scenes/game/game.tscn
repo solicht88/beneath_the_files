@@ -86,6 +86,6 @@ offset_bottom = 40.0
 
 [node name="AudioStreamPlayer" parent="." instance=ExtResource("7_qyd5v")]
 stream = ExtResource("8_euj6p")
-volume_db = 10.0
+volume_db = 6.0
 
 [connection signal="timeout" from="virus_timer" to="." method="_on_virus_timer_timeout"]
