@@ -1,9 +1,23 @@
 extends Node2D
 
 
+var window_text
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	#print(window_text)
+	if window_text is String:
+		if window_text == "virus":
+			self.visible = false
+			Global.fade_in()
+			get_tree().change_scene_to_file("res://scenes/title_screen.tscn")
+		else:
+			$Label.text = window_text
+	else:
+		$Label.visible = false
+		$Sprite2D.texture = window_text
+		$Area2D/CollisionShape2D.position.x -= 25
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

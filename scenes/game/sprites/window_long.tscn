@@ -1,13 +1,15 @@
-[gd_scene load_steps=5 format=3 uid="uid://dfxnei0ass6fv"]
+[gd_scene load_steps=6 format=3 uid="uid://dfxnei0ass6fv"]
 
 [ext_resource type="Script" path="res://scripts/game/window_long.gd" id="1_k8wek"]
 [ext_resource type="Texture2D" uid="uid://bljn4lqgygmsh" path="res://assets/imgs/game sprites/window1.png" id="1_srsfl"]
 [ext_resource type="Theme" uid="uid://bqf8rudx067vu" path="res://scenes/themes/window_text.tres" id="2_7lwaf"]
+[ext_resource type="Theme" uid="uid://cccmvbftnanij" path="res://scenes/themes/rich_text_label.tres" id="4_c3w4p"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m7vv0"]
 radius = 21.587
 
 [node name="window_long" type="Node2D"]
+z_index = 2
 script = ExtResource("1_k8wek")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -27,6 +29,20 @@ offset_top = 90.0
 offset_right = 464.0
 offset_bottom = 606.0
 theme = ExtResource("2_7lwaf")
+text = "March 2: 2:00 A.M, 2000,
+	They uncovered something and didn’t tell us. What on earth did they uncover? Before I knew it, my legs took me to the place where I found Zine’s wallet. And this time, there is blood trailed along the wall of the cave too. I could walk away right then and there, but, but something is keeping me… I have to uncover what is in the branching cave. If I don't, then I know that I will regret it for the rest of my life. Going against my good sense, I ventured deeper into the cave.
+	
+	Alex out."
+autowrap_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 30.0
+offset_top = 90.0
+offset_right = 464.0
+offset_bottom = 606.0
+theme = ExtResource("4_c3w4p")
+theme_override_font_sizes/normal_font_size = 24
 text = "March 3: 3:25 A.M
 W-what is that? I stared and stared. A lady with sickly milk coloured face with thick black hair spilling down, covering her face. She is wearing a traditional white kimono with a large red obi. She turned to me. Suddenly her neck and hand stretched and it came closer and closer. I could only watch in horror as the monster’s limbs bent and twisted in weird angles. She looks just like Zine, but her teeth are pointy with blood all around her mouth and grinning at me, crazed. I took a step back, but my body wouldn’t budge an inch. 
 “The chosen one” a raspy voice came from the monster.  “Master…Have…Came…Home…” She whispers. Suddenly her entire body shriveled and shifted, and compacted. A singular object dropped in front of me. A USB.
