@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://5761m8h7twye"]
+
+[ext_resource type="Texture2D" uid="uid://43y5yxj26w33" path="res://assets/imgs/game sprites/window2.png" id="1_q75ue"]
+[ext_resource type="Theme" uid="uid://bqf8rudx067vu" path="res://scenes/themes/window_text.tres" id="2_ykk22"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gydew"]
+radius = 22.0
+
+[node name="window_wide" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(318, 250)
+texture = ExtResource("1_q75ue")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(50, 58)
+shape = SubResource("CircleShape2D_gydew")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(594, 378)
+offset_left = 19.0
+offset_top = 94.0
+offset_right = 613.0
+offset_bottom = 472.0
+theme = ExtResource("2_ykk22")
+text = "yaning's editor was here"
+autowrap_mode = 2

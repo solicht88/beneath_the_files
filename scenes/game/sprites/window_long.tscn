@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://dfxnei0ass6fv"]
+
+[ext_resource type="Texture2D" uid="uid://bljn4lqgygmsh" path="res://assets/imgs/game sprites/window1.png" id="1_srsfl"]
+[ext_resource type="Theme" uid="uid://bqf8rudx067vu" path="res://scenes/themes/window_text.tres" id="2_7lwaf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m7vv0"]
+radius = 21.587
+
+[node name="window_long" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(250, 318)
+texture = ExtResource("1_srsfl")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(60, 54)
+shape = SubResource("CircleShape2D_m7vv0")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(434, 516)
+offset_left = 30.0
+offset_top = 90.0
+offset_right = 464.0
+offset_bottom = 606.0
+theme = ExtResource("2_7lwaf")
+text = "March 2: 1:00 A.M, 2000,
+The siren sounded. Another 2 people went missing this time. The higher ups are worried. I couldn't sleep so I went outside and took a walk. As I walked around the grounds I saw some dark silhouettes coming, upon reflex I dodged behind a large rock and silently observed. From the voice I recognized that it’s the higher ups.
+“Three people are missing now. What on earth are we going to tell the workers?”
+“Nothing of course”
+“Do you think that maybe it is ‘that’”
+The second man turned to the first and faced him. From his tone I could tell that he was threatening. “And what would ‘that’ be?”
+“Y-you know, t-the ‘thing’ that we uncovered”
+“You shouldn’t poke into places that don’t concern you ‘Mr. Derek’”
+Alex out."
+autowrap_mode = 2

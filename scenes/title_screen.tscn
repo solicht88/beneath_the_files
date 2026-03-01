@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://docffyquqmbpg"]
+[gd_scene load_steps=5 format=3 uid="uid://docffyquqmbpg"]
 
-[ext_resource type="Texture2D" path="res://imgs/title_screen.png" id="1_e7h5y"]
+[ext_resource type="Script" path="res://scripts/title_screen.gd" id="1_0tu64"]
+[ext_resource type="Texture2D" uid="uid://dj0wvkjb0ys3r" path="res://assets/imgs/title_screen.png" id="1_yaf11"]
 [ext_resource type="FontFile" uid="uid://26qc6qwewdo8" path="res://assets/Jersey10-Regular.ttf" id="2_g4s32"]
 
 [sub_resource type="Theme" id="Theme_jem8t"]
-Label/colors/font_color = Color(1, 1, 1, 1)
+Label/colors/font_color = Color(0.0313726, 0.486275, 0.654902, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 1)
 Label/colors/font_shadow_color = Color(0, 0, 0, 1)
 Label/constants/line_spacing = 0
@@ -17,15 +18,16 @@ Label/fonts/font = ExtResource("2_g4s32")
 Label/styles/normal = null
 
 [node name="title_screen" type="Node2D"]
+script = ExtResource("1_0tu64")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
-texture = ExtResource("1_e7h5y")
+texture = ExtResource("1_yaf11")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 218.0
-offset_top = 708.0
-offset_right = 677.0
-offset_bottom = 778.0
+offset_left = 192.0
+offset_top = 709.0
+offset_right = 696.0
+offset_bottom = 779.0
 theme = SubResource("Theme_jem8t")
 text = "> Press enter to start"

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://0iuxa61gs4sw"]
+
+[ext_resource type="Texture2D" uid="uid://beolvprxa1opo" path="res://assets/imgs/game sprites/Desktop.png" id="1_d0kyf"]
+[ext_resource type="Script" path="res://scripts/game/game.gd" id="1_kq0ji"]
+[ext_resource type="PackedScene" uid="uid://kwmuhnup116s" path="res://scenes/game/sprites/file.tscn" id="3_1mlka"]
+[ext_resource type="PackedScene" uid="uid://dfxnei0ass6fv" path="res://scenes/game/sprites/window_long.tscn" id="4_u1imf"]
+
+[node name="game" type="Node2D"]
+script = ExtResource("1_kq0ji")
+
+[node name="bg" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+texture = ExtResource("1_d0kyf")
+
+[node name="files" type="Node2D" parent="."]
+
+[node name="file_01" parent="files" instance=ExtResource("3_1mlka")]
+position = Vector2(10, 10)
+
+[node name="windows" type="Node2D" parent="."]
+
+[node name="window_long" parent="windows" instance=ExtResource("4_u1imf")]
+visible = false
+position = Vector2(575, 66)
