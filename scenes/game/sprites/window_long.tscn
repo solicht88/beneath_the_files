@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfxnei0ass6fv"]
+[gd_scene load_steps=5 format=3 uid="uid://dfxnei0ass6fv"]
 
+[ext_resource type="Script" path="res://scripts/game/window_long.gd" id="1_k8wek"]
 [ext_resource type="Texture2D" uid="uid://bljn4lqgygmsh" path="res://assets/imgs/game sprites/window1.png" id="1_srsfl"]
 [ext_resource type="Theme" uid="uid://bqf8rudx067vu" path="res://scenes/themes/window_text.tres" id="2_7lwaf"]
 
@@ -7,6 +8,7 @@
 radius = 21.587
 
 [node name="window_long" type="Node2D"]
+script = ExtResource("1_k8wek")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(250, 318)
@@ -25,13 +27,13 @@ offset_top = 90.0
 offset_right = 464.0
 offset_bottom = 606.0
 theme = ExtResource("2_7lwaf")
-text = "March 2: 1:00 A.M, 2000,
-The siren sounded. Another 2 people went missing this time. The higher ups are worried. I couldn't sleep so I went outside and took a walk. As I walked around the grounds I saw some dark silhouettes coming, upon reflex I dodged behind a large rock and silently observed. From the voice I recognized that it’s the higher ups.
-“Three people are missing now. What on earth are we going to tell the workers?”
-“Nothing of course”
-“Do you think that maybe it is ‘that’”
-The second man turned to the first and faced him. From his tone I could tell that he was threatening. “And what would ‘that’ be?”
-“Y-you know, t-the ‘thing’ that we uncovered”
-“You shouldn’t poke into places that don’t concern you ‘Mr. Derek’”
-Alex out."
+text = "March 3: 3:25 A.M
+W-what is that? I stared and stared. A lady with sickly milk coloured face with thick black hair spilling down, covering her face. She is wearing a traditional white kimono with a large red obi. She turned to me. Suddenly her neck and hand stretched and it came closer and closer. I could only watch in horror as the monster’s limbs bent and twisted in weird angles. She looks just like Zine, but her teeth are pointy with blood all around her mouth and grinning at me, crazed. I took a step back, but my body wouldn’t budge an inch. 
+“The chosen one” a raspy voice came from the monster.  “Master…Have…Came…Home…” She whispers. Suddenly her entire body shriveled and shifted, and compacted. A singular object dropped in front of me. A USB.
+
+Alex Out."
 autowrap_mode = 2
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
